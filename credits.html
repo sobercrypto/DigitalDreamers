@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Dreamers - Credits</title>
+    <!-- Link your main style file -->
+    <link rel="stylesheet" href="../styles/style.css" />
+    <style>
+      /* Additional styling specific to the credits page */
+      .credits-container {
+        background: #000;
+        color: var(--neon-blue);
+        padding: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 20;
+      }
+      .credits-container header h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+      .credits-container header h2 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: var(--neon-purple);
+      }
+      .credits-section {
+        margin-bottom: 2rem;
+      }
+      .credits-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+      .credits-section p,
+      .credits-section ul {
+        font-size: 1rem;
+        margin: 0 auto;
+        max-width: 600px;
+        text-align: left;
+      }
+      .credits-section ul {
+        list-style: none;
+        padding: 0;
+      }
+      .credits-section ul li {
+        margin: 0.5rem 0;
+      }
+      .close-btn {
+        background: none;
+        border: 2px solid var(--neon-blue);
+        color: var(--neon-blue);
+        padding: 10px 20px;
+        cursor: pointer;
+        font-family: "Press Start 2P", cursive;
+        font-size: 1rem;
+        transition: background 0.3s, color 0.3s;
+      }
+      .close-btn:hover {
+        background: var(--neon-blue);
+        color: #000;
+      }
+      /* Ensure the overlay effects are behind our content */
+      .scanline,
+      .crt-overlay {
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="credits-container">
+        <header>
+          <h1>Digital Dreamers</h1>
+          <h2>A Journey Concluded</h2>
+        </header>
+        <section class="credits-section">
+          <h3>Your Journey Summary</h3>
+          <div id="summaryContent">
+            <!-- Summary from localStorage will be inserted here -->
+            <p>Your journey was epic, but no summary is available.</p>
+          </div>
+        </section>
+        <section class="credits-section">
+          <h3>Your Achievements</h3>
+          <div id="achievements">
+            <p>No achievements unlocked.</p>
+          </div>
+        </section>
+        <section class="credits-section">
+          <h3>Credits</h3>
+          <ul id="creditsList">
+            <li><strong>Lead Developer:</strong> PIXL_DRIFT</li>
+            <li><strong>AI Narrative and Design:</strong> SPUDNIK</li>
+            <li><strong>Concept and Story:</strong> Digital Dreamers Team</li>
+            <li>
+              <strong>Art and Animation:</strong> Replicate and Anthropic API
+            </li>
+            <li><strong>Sound and Effects:</strong> Retro Audio Studio</li>
+          </ul>
+        </section>
+        <section class="credits-section">
+          <h3>Secret Icon</h3>
+          <div id="easterEgg">
+            <img
+              src="../assets/secret-icon.png"
+              alt="Secret Icon"
+              title="Click me for a surprise!"
+              style="width: 50px; cursor: pointer"
+            />
+            <div
+              id="bonusContent"
+              style="
+                display: none;
+                margin-top: 1rem;
+                font-size: 0.9rem;
+                color: var(--neon-purple);
+              "
+            >
+              <p>
+                You found a secret! Bonus: extra credits, hidden lore, or easter
+                egg details here.
+              </p>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <button class="close-btn" id="closeComicBtn">
+            Close the Comic Book
+          </button>
+        </footer>
+      </div>
+    </div>
+
+    <div class="scanline"></div>
+    <div class="crt-overlay"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Load the story summary from localStorage
+        const summaryEl = document.getElementById("summaryContent");
+        const storedSummary = localStorage.getItem("storySummary");
+        console.log("Stored summary:", storedSummary);
+        if (storedSummary) {
+          summaryEl.innerHTML = `<p>${storedSummary}</p>`;
+        } else {
+          summaryEl.innerHTML =
+            "<p>Your journey was epic, but no summary is available.</p>";
+        }
+
+        // Easter Egg Toggle
+        const easterEggImg = document.querySelector("#easterEgg img");
+        const bonusContent = document.getElementById("bonusContent");
+        if (easterEggImg) {
+          easterEggImg.addEventListener("click", () => {
+            bonusContent.style.display =
+              bonusContent.style.display === "block" ? "none" : "block";
+          });
+        }
+
+        // "Close the Comic Book" Button: clear session data if needed and redirect to index.html
+        document
+          .getElementById("closeComicBtn")
+          .addEventListener("click", () => {
+            // Optionally, clear game-related localStorage items if you want to reset for a new playthrough
+            console.log("Close button clicked!");
+            localStorage.removeItem("sessionId");
+            localStorage.removeItem("currentPage");
+            localStorage.removeItem("storyChoices");
+            localStorage.removeItem("storyHistory");
+            localStorage.removeItem("storySummary");
+            window.location.href = "/index.html";
+          });
+      });
+    </script>
+  </body>
+</html>

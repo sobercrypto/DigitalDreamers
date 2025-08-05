@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Dreamers - Page 4</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/page1.css" />
+  </head>
+  <!-- Added data-page attribute for progressive effects -->
+  <body data-page="4">
+    <div class="comic-container">
+      <!-- Loading overlay -->
+      <div class="loading-overlay">
+        <div class="loading-text">GENERATING REALITY...</div>
+        <div class="loading-spinner"></div>
+      </div>
+      <!-- Main comic content -->
+      <div class="comic-page">
+        <div class="comic-header">
+          <h1>DIGITAL DREAMERS</h1>
+          <div class="chapter-info">PAGE 4</div>
+        </div>
+        <!-- Comic panels container -->
+        <div class="panels-container">
+          <!-- Main story panel -->
+          <div class="main-panel">
+            <!-- Added glitch-container for additional effects -->
+            <div class="glitch-container">
+              <div id="panelImage" class="panel-image"></div>
+              <div id="panelStoryText" class="story-text"></div>
+            </div>
+          </div>
+          <!-- Choice panels -->
+          <div class="choice-panels">
+            <div class="choice" data-choice="1">
+              <div class="choice-content">
+                <div class="choice-number">1</div>
+                <div class="choice-text"></div>
+              </div>
+              <!-- Added choice glitch overlay -->
+              <div class="choice-glitch-overlay"></div>
+            </div>
+            <div class="choice" data-choice="2">
+              <div class="choice-content">
+                <div class="choice-number">2</div>
+                <div class="choice-text"></div>
+              </div>
+              <div class="choice-glitch-overlay"></div>
+            </div>
+            <div class="choice" data-choice="3">
+              <div class="choice-content">
+                <div class="choice-number">3</div>
+                <div class="choice-text"></div>
+              </div>
+              <div class="choice-glitch-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Enhanced CRT effects -->
+      <div class="scanline"></div>
+      <div class="crt-overlay"></div>
+      <!-- Added digital noise overlay -->
+      <div class="digital-noise"></div>
+    </div>
+    <!-- Story Container (for generated content) -->
+    <div class="story-container">
+      <div class="story-content">
+        <img
+          id="storyImage"
+          class="story-image"
+          alt="Story scene"
+          style="display: none"
+        />
+        <div id="storyText" class="story-text"></div>
+        <!-- Choices Container -->
+        <div class="choices-container">
+          <div class="choice-text"></div>
+          <div class="choice-text"></div>
+          <div class="choice-text"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Added transition overlay -->
+    <div class="page-transition-overlay"></div>
+    <!-- Scripts -->
+    <script src="../script.js"></script>
+  </body>
+</html>
