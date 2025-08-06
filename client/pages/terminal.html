@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Dreamers DOS</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/terminal.css" />
+  </head>
+  <body>
+    <div class="dos-screen">
+      <div class="scanlines"></div>
+      <div class="crt-effect"></div>
+      <div class="terminal-content" id="terminalContent">
+        <!-- Boot sequence text -->
+        <div class="terminal-text">Digital Dreamers DOS [Version 1.0]</div>
+        <div class="terminal-text">
+          (c) 2025 Potasim Studios. All rights reserved.
+        </div>
+        <div class="terminal-text">Initializing SPUDNIK quantum link...</div>
+        <div class="terminal-text">
+          Establishing connection to root dimension...
+        </div>
+        <div class="terminal-text">READY.</div>
+        <div class="terminal-text">&nbsp;</div>
+        <div class="terminal-input-line">
+          <span class="terminal-prompt">C:\></span>
+          <input type="text" class="terminal-input" autofocus />
+        </div>
+      </div>
+    </div>
+
+    <!-- Sound effects -->
+    <audio id="keySound" preload="auto">
+      <source src="/assets/sounds/key.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="errorSound" preload="auto">
+      <source src="/assets/sounds/error.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="successSound" preload="auto">
+      <source src="/assets/sounds/success.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="/scripts/terminal.js"></script>
+  </body>
+</html>

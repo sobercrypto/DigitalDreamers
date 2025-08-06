@@ -1,0 +1,394 @@
+:root {
+  --neon-blue: #00f3ff;
+  --neon-purple: #bc13fe;
+  --glow-strength: 8px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Press Start 2P", cursive;
+  background-image: url(https://cdn.glitch.global/5817c318-6998-4ceb-a6e8-cf334857147e/Drift_Comic.webp?v=1738198263325);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: -webkit-fill-available;
+  /*   overflow: hidden; */
+  position: relative;
+}
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.1) 51%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 999;
+}
+.comic-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  /*   position: relative; */
+  padding: 20px;
+}
+
+.comic-container::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 60px;
+  border: 8px solid white;
+  pointer-events: none;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  animation: borderPulse 4s infinite;
+}
+
+/* Enhanced Issue Number styling */
+.issue-number {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  background: linear-gradient(135deg, #ff0000, #ff6b6b);
+  color: white;
+  padding: 15px;
+  transform: rotate(-5deg);
+  box-shadow: 3px 3px 0 rgba(2, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.4);
+  font-size: 0.8em;
+  text-transform: uppercase;
+  border: 3px solid white;
+  z-index: 2;
+  animation: issueGlow 2s infinite;
+}
+
+.issue-number::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, #ff0000, transparent);
+  z-index: -1;
+  animation: issuePulse 2s infinite;
+}
+
+/* Scanline effect */
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(0, 0, 0, 0.05) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 1;
+  pointer-events: none;
+  animation: scanline 6s linear infinite;
+  mix-blend-mode: overlay;
+}
+
+/* Title styling */
+.title {
+  position: relative;
+  margin-bottom: 30px;
+  transform-style: preserve-3d;
+}
+
+.title h1 {
+  font-size: 3em;
+  margin: 0;
+  text-shadow: 4px 4px 0 #000, -4px -4px 0 #000, 4px -4px 0 #000,
+    -4px 4px 0 #000;
+  color: #fff;
+  letter-spacing: 2px;
+  animation: titleFloat 3s ease-in-out infinite;
+}
+
+.title h2 {
+  font-size: 1.5em;
+  margin: 10px 0;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  transform: translateZ(-10px);
+}
+
+/* Modified button container for vertical stack */
+.button-container {
+  position: relative;
+  bottom: -120px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 2;
+  width: 280px; /* Fixed width for buttons */
+}
+
+.game-button {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: 3px solid white;
+  padding: 15px 30px;
+  font-family: "Press Start 2P", cursive;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  width: 100%; /* Full width of container */
+}
+
+.game-button::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.game-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.game-button:hover::before {
+  transform: translateX(100%);
+}
+
+.version-tag {
+  position: relative;
+  bottom: -145px;
+  right: -140px;
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transform: rotate(2deg);
+}
+
+/* Animations */
+@keyframes scanline {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes borderPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes titleFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes issueGlow {
+  0%,
+  100% {
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 0, 0, 0.6);
+  }
+}
+
+@keyframes issuePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.halftone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 4px 4px;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .title h1 {
+    font-size: 2em;
+  }
+  .title h2 {
+    font-size: 1em;
+  }
+  .button-container {
+    width: 80%;
+  }
+  .game-button {
+    padding: 10px 20px;
+  }
+  body {
+    background-position: left !important;
+    height: -webkit-fill-available;
+  }
+}
+/* Modal (Neon Styled) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #000;
+  border: 2px solid var(--neon-blue);
+  box-shadow: 0 0 var(--glow-strength) var(--neon-blue);
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  color: var(--neon-blue);
+  border-radius: 4px;
+  animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonGlow {
+  from {
+    box-shadow: 0 0 var(--glow-strength) var(--neon-blue);
+  }
+  to {
+    box-shadow: 0 0 calc(var(--glow-strength) * 2) var(--neon-blue);
+  }
+}
+
+.modal-title {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.modal-text {
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+  font-size: 12px;
+  text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.modal-close {
+  background: none;
+  border: 2px solid var(--neon-blue);
+  color: var(--neon-blue);
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: var(--neon-blue);
+  color: #000;
+}
+/* Add to intro.css */
+
+/* Initial state for the body */
+body {
+  opacity: 0;
+  animation: fadeInPage 1.5s ease-out forwards;
+}
+
+@keyframes fadeInPage {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+    filter: brightness(1.5) blur(10px);
+  }
+  50% {
+    filter: brightness(1) blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1) blur(0);
+  }
+}
+
+/* CRT scan effect during transition */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.03) 50%,
+    transparent 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  animation: showScanlines 1.5s ease-out forwards;
+}
+
+@keyframes showScanlines {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 0.5; }
+  100% { opacity: 0.3; }
+}

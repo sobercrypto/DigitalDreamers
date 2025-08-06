@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Digital Dreamers - An interactive retro computing experience"
+    />
+    <title>Digital Dreamers - Retro Computing Setup</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/terminal.css" />
+  </head>
+  <body>
+    <!-- Main Game Container -->
+    <div class="game-container">
+      <!-- Room Scene (background image set via CSS) -->
+      <div class="room-container">
+        <!-- Interactive Elements Layer -->
+        <div class="interactive-elements">
+          <!-- Comic Book Button -->
+          <div
+            class="interactive-item comic-book"
+            data-tooltip="Hidden Comic Book"
+          >
+            <img src="" alt="" class="comic-image" />
+            <div class="glow-effect"></div>
+            <div class="tooltip"></div>
+          </div>
+
+          <!-- Monitors and TVs -->
+          <div
+            class="interactive-item left-tv"
+            data-tooltip="Vintage Television"
+          >
+            <div class="container-content">
+              <span class="device-status">SIGNAL ACTIVE</span>
+            </div>
+            <div class="glow-effect"></div>
+            <div class="tooltip">Examine Left Display</div>
+          </div>
+
+          <div
+            class="interactive-item center-monitor"
+            data-tooltip="Quantum DOS"
+          >
+            <div class="container-content">
+              <span class="device-status">QUANTUM FORK ACTIVE</span>
+            </div>
+            <div class="glow-effect"></div>
+            <div class="tooltip">Access Quantum Terminal</div>
+          </div>
+
+          <div class="interactive-item right-tv" data-tooltip="Test Display">
+            <div class="container-content">
+              <span class="device-status">DIAGNOSTICS</span>
+            </div>
+            <div class="glow-effect"></div>
+            <div class="tooltip">Check Test Monitor</div>
+          </div>
+
+          <!-- Computers -->
+          <div
+            class="interactive-item center-computer"
+            data-tooltip="Main Computer"
+          >
+            <div class="container-content">
+              <span class="device-status">READY</span>
+            </div>
+            <div class="glow-effect"></div>
+            <div class="tooltip">Access Main System</div>
+          </div>
+
+          <div
+            class="interactive-item left-computer"
+            data-tooltip="Development System"
+          >
+            <div class="container-content">
+              <span class="device-status">DEV MODE</span>
+            </div>
+            <div class="glow-effect"></div>
+            <div class="tooltip">Check Dev Station</div>
+          </div>
+
+          <div
+            class="interactive-item right-computer"
+            data-tooltip="Storage System"
+          >
+            <div class="container-content">
+              <span class="device-status">ARCHIVE</span>
+            </div>
+            <div class="glow-effect"></div>
+            <div class="tooltip">Browse Storage</div>
+          </div>
+
+          <!-- Game Posters -->
+          <div class="interactive-item poster-doom" data-tooltip="DOOM (1993)">
+            <div class="container-content">
+              <span class="collection-status">DEMONIC PRESENCE</span>
+            </div>
+            <div class="glow-effect"></div>
+            <div class="tooltip">Examine DOOM Poster</div>
+          </div>
+
+          <div
+            class="interactive-item poster-mario"
+            data-tooltip="Super Mario Bros"
+          >
+            <div class="container-content">
+              <span class="collection-status">1-UP READY</span>
+            </div>
+            <div class="glow-effect"></div>
+            <div class="tooltip">Check Mario Poster</div>
+          </div>
+
+          <div
+            class="interactive-item poster-alien-logic"
+            data-tooltip="Alien Logic"
+          >
+            <div class="container-content">
+              <span class="collection-status">ISHO FLOWING</span>
+            </div>
+            <div class="glow-effect"></div>
+            <div class="tooltip">Study Alien Logic</div>
+          </div>
+
+          <div
+            class="interactive-item poster-lords-magic"
+            data-tooltip="Lords of Magic"
+          >
+            <div class="container-content">
+              <span class="collection-status">MAGIC ACTIVE</span>
+            </div>
+            <div class="glow-effect"></div>
+            <div class="tooltip">Channel Magic</div>
+          </div>
+
+          <!-- ALF Figurine -->
+          <div
+            class="interactive-item alf-figurine"
+            data-tooltip="Strange Collectible"
+          >
+            <div class="container-content">
+              <span class="collection-status">MELMACKING...</span>
+            </div>
+            <div class="glow-effect"></div>
+            <div class="tooltip">Inspect ALF</div>
+          </div>
+
+          <!-- OP Figurine -->
+          <div
+            class="interactive-item MDL"
+            data-tooltip="OP Collectible (1999)"
+          >
+            <div class="container-content">
+              <span class="collection-status">One Piece</span>
+            </div>
+            <div class="glow-effect"></div>
+            <div class="tooltip">Inspect OP</div>
+          </div>
+
+          <!-- Ambient Lamp -->
+          <div class="interactive-item lamp" data-tooltip="Ambient Light">
+            <div class="container-content">
+              <span class="device-status">ILLUMINATED</span>
+            </div>
+            <div class="glow-effect"></div>
+            <div class="tooltip">Check Lighting</div>
+          </div>
+        </div>
+
+        <!-- Visual Effects -->
+        <div class="scanline"></div>
+        <div class="crt-overlay"></div>
+      </div>
+
+      <!-- Modal Dialog -->
+      <div class="modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-content">
+          <h2 class="modal-title"></h2>
+          <p class="modal-text"></p>
+          <button class="modal-close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+  </body>
+</html>
